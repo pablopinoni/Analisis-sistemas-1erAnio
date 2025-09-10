@@ -1,0 +1,6 @@
+101 pendrive 18 10
+102 router 40 15
+103 ram 15 9
+104 teclado 11 22
+105 base 21 5
+-1

@@ -1,0 +1,4 @@
+Un programa que no ha sido probado no funciona.
+La prueba por analogía es fraude.
+Intentar ser demasiado listo suele complicar la escritura de código.
+Hay sólo dos clases de lenguajes de programación: aquellos que la gente está siempre quejándose y aquellos que nadie usa.

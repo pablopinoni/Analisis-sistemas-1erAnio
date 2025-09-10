@@ -1,0 +1,221 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "enter program name, for example ${workspaceFolder}/a.out",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        
+        // ============================
+        // ENUMERACIONES
+        // ============================
+         
+        typedef enum { SALIR = 0, DESPEGAR = 1, ATERRRIZAR = 2, ACELERAR = 3, FRENAR = 4 } tAccion;
+        
+        
+        // Variables globales
+        
+        
+        bool volando = false;
+        int velocidad = 0;
+        const int velocidadMax = 70;
+        float altura = 0.0f;
+        
+        
+        
+        
+        
+        // ============================
+        // PROTOTIPOS
+        // ============================
+        
+        
+        //Funciones Principales
+        
+        void despegar();
+        void aterrizar();
+        void acelerar();
+        void frenar();
+        string estadoActual(int velocidad, float altura );
+        
+        //Funciones auxiliares
+        void mostrarMenuPrincipal();
+        void clearConsole();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        int main (){
+        
+         int opcion;
+         bool repetir = true;// mantener el loop hasta que el usuaario pida la salida    
+          do {clearConsole();
+        
+            cout << "\n\t#========================#"  << endl;
+            cout << "\n\t      DRONE CONTROL\n" << endl;  
+            cout << "\t#========================#\t\n"  << endl;
+            
+            cout << "   MENU PRINCIPAL\n" << endl;  
+        
+        
+            mostrarMenuPrincipal();
+            cin >> opcion; //¿¿¿ cin en main o en la declaracion de la funcion???
+        
+            
+            switch (opcion) {
+              case DESPEGAR :
+                despegar();
+                break;
+        
+              case ATERRRIZAR:
+                aterrizar();
+                break;   
+            
+              case  ACELERAR:
+                acelerar();
+                break;
+        
+              case FRENAR: 
+                frenar();
+                break;
+                
+                case SALIR: //Salir No sé si es mejor dejar  "case 0;"
+                 repetir = false;
+                break;
+            
+              default:
+                 
+               cout << "Ingrese opcion valida: " << endl;
+                break;
+                 } //Token cierre switch
+           } //cierre Do-while
+        while (repetir);
+        
+        
+           return 0;
+        
+           
+        }  //cierre main
+        
+            
+        //Declaracion de las Funciones
+        
+        
+        
+        
+        
+        
+        void mostrarMenuPrincipal() {
+            cout << "1. Despegar" << endl;
+            cout << "2. Aterrizar" << endl;
+            cout << "3. Acelerar" << endl;
+            cout << "4. Frenar" << endl;
+            cout << "0. Salir" << endl;
+            cout << "\nSeleccione una opcion: ";
+        }
+        
+         void despegar(){ 
+            clearConsole();
+            if (altura <= 0 || velocidad < 5 ) {
+            cout << "Chequeando 5... 4 ... 3 ..2 .. 1... 0..." << endl;
+            cout << "\t\t  Dspegue exitoso!!!!!" << endl;  
+            cout << "\t\t#=================#\n"  << endl;
+            }
+            else  {
+                cout << "El dron ya esta volando a " << altura << " metros." << endl; 
+        
+            }
+        }
+            
+        
+        void acelerar() {
+                if (volando) {
+                    if ((velocidad + 5) <= velocidadMax) {
+                        velocidad += 5; //acordarse de =+ NO es!!
+                        cout << "Velocidad aumentada en 5 km/h. Velocidad actual: " << velocidad << " km/h." << endl;
+                    } else {
+                        cout << "Ha alcanzado su velocidad maxima de " << velocidadMax << " km/h." << endl;
+                    }
+                } else {
+                    cout << "El dron debe estar en vuelo para acelerar." << endl;
+                }
+            }
+            
+            
+            
+         void frenar(){
+            
+                if (velocidad >= 5 ) {
+                velocidad -= 5;
+               cout << "Reduciendo velocidad." << endl;
+               }
+                else { 
+             
+                   cout << "No se puede seguir reduciendo la velocidad. Velocidad actual: " << velocidad 
+                    << " km/h." << endl;
+                }
+            
+             }
+        
+        
+             void aterrizar() {
+                       if (altura <= 0 || velocidad > 5) {
+        
+                        cout << "Chequeando 5... 4 ... 3 ..2 .. 1... 0..." << endl;
+                        cout << "\t\t  Aterrizaje exitoso!!!!!" << endl;  
+                        cout << "\t\t#============================#\n"  << endl;
+                       }
+        
+                         else {
+                        cout << "Error: El dron ya está en tierra (altura: 0 m)" << endl;
+                        }
+        
+             }
+        
+        
+        
+        
+               
+            
+            
+           string estadoActual( int velocidad, int altura) {
+            
+            return "/ESTADO/ Altura: " + to_string(altura) +  " m | Velocidad: " + to_string(velocidad) + " Km/h."; 
+        }
+        
+        
+        void clearConsole() {
+          #ifdef _WIN32
+              system("cls");
+          #else
+              system("clear"); //Mac o Linux
+          #endif
+          }

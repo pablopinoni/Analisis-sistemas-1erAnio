@@ -1,0 +1,10 @@
+id1 precio15 unidades1
+id2 precio22.3 unidades2
+id3 precio11 unidades5
+id4 precio8.65 unidades11
+id5 precio55 unidades2
+id6 precio20.32 unidades23
+
+-1
+
+

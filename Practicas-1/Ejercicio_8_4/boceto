@@ -1,0 +1,29 @@
+/Declarar prototipo de función:
+double add(double a, double b);
+
+int main()
+{
+    /* code */
+    //declarar y definir variables de tipo doubleeger.
+    
+    double n1;//declarar: reservo y denomino el contenedor (espacio en memoria) o variable. 
+    double n2 ; //declarar 
+    cout << "Ingrese Primer Número: ";   cin >> n1;
+    cout << "Ingrese Segundo Número ";   cin >> n2;}
+    
+
+    //llamar a la función y cargar lo que retorna en la variable "result".
+   { result = add(n1, n2);
+    
+    //mostrar resultado en pantalla:
+    cout << "El resultado de la Suma es: " << result << endl;
+   }
+
+    //siempre se retorna double en la función main
+    //0 significa todo piola para el computador.
+    return 0;
+
+//
+{
+    return  a + b; }
+    

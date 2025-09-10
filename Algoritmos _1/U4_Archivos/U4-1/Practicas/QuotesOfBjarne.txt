@@ -1,0 +1,8 @@
+Un código sin polimorfismo pero a la vez orientado a objetos es maravilloso.
+Siempre deseé que mi computadora fuera tan fácil de usar como mi teléfono. Mi deseo se ha hecho realidad: ya no sé usar mi teléfono.
+Existen dos tipos de lenguajes de programación: por un lado, aquellos de los que la gente se queja todo el rato; por otro, los que nadie utiliza.
+Lo mejor es enemigo de lo bueno.
+Los punteros son muy buenos para señalar cosas.
+El diseño y la programación son actividades humanas; olvídalo y todo está perdido.
+La gente que cree que lo sabe todo realmente nos molesta a quienes sabemos que no lo sabemos.
+C hace que sea facil dispararte en el pie; C++ lo hace más dificil, pero cuando lo logras te vuelas la pierna entera.
