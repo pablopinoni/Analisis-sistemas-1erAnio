@@ -1,5 +1,5 @@
 #ifndef PEDIDO_H
-#define PEDIDO_H
+#define PEDIDO_H //probar con #pragma once
 
 #include <string>
 #include "cliente.h"
